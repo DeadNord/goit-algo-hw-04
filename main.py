@@ -40,6 +40,7 @@ def insertion_sort(arr):
             arr[j + 1] = arr[j]
             j -= 1
         arr[j + 1] = key
+    return arr
 
 def tim_sort(arr):
     arr.sort()
@@ -65,7 +66,7 @@ def plot_results(data_sizes, results):
 
 
 def main():
-    data_sizes = [100, 500, 1000]
+    data_sizes = [100, 500, 1000, 3000]
     algorithms = {"Merge Sort": "merge_sort", "Insertion Sort": "insertion_sort", "TimSort": "tim_sort"}
 
     results = {alg: [] for alg in algorithms}
