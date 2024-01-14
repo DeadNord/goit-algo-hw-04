@@ -67,18 +67,18 @@ def print_results(data_sizes, results):
     col_widths = [max(len(str(size)), max(len(f"{results[alg][data_sizes.index(size)]:.6f} sec") for alg in results)) for size in data_sizes]
 
     line_length = sum(col_widths) + len(col_widths) * 3 + 1
-    print("-" * line_length)
+    print("|", "-" * (line_length - 2), "|")
 
     header = ["Data Size"] + list(results.keys())
-    print(" | ".join(f"{col:<{col_widths[i]}}" for i, col in enumerate(header)))
+    print("|", " | ".join(f"{col:<{col_widths[i]}}" for i, col in enumerate(header)), "|")
 
-    print("-" * line_length)
+    print("|", "-" * (line_length - 2), "|")
 
     for size in data_sizes:
         row_data = [size] + [f"{results[alg][data_sizes.index(size)]:.6f} sec" for alg in results]
-        print(" | ".join(f"{col:<{col_widths[i]}}" for i, col in enumerate(row_data)))
+        print("|", " | ".join(f"{col:<{col_widths[i]}}" for i, col in enumerate(row_data)), "|")
 
-    print("-" * line_length)
+    print("|", "-" * (line_length - 2), "|")
 
 def main():
     data_sizes = [100, 500, 1000, 3000]
