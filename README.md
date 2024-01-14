@@ -23,12 +23,14 @@ The algorithms were tested on the following data sizes:
 
 The execution times for each algorithm at different data sizes are as follows:
 
+-------------------------------------------------------------
 Data Size    | Merge Sort   | Insertion Sort | TimSort     
 -------------------------------------------------------------
-100          | 0.004200 sec | 0.001013 sec | 0.000028 sec
-500          | 0.015779 sec | 0.012614 sec | 0.000092 sec
-1000         | 0.028635 sec | 0.044151 sec | 0.000211 sec
-3000         | 0.107062 sec | 0.413843 sec | 0.000635 sec
+100          | 0.002242 sec | 0.000538 sec | 0.000018 sec
+500          | 0.012892 sec | 0.011765 sec | 0.000093 sec
+1000         | 0.028251 sec | 0.046037 sec | 0.000198 sec
+3000         | 0.104270 sec | 0.780559 sec | 0.000956 sec
+-------------------------------------------------------------
 
 ## Analysis and Conclusions
 
