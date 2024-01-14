@@ -40,7 +40,6 @@ def insertion_sort(arr):
             arr[j + 1] = arr[j]
             j -= 1
         arr[j + 1] = key
-    return arr
 
 def tim_sort(arr):
     arr.sort()
@@ -64,6 +63,18 @@ def plot_results(data_sizes, results):
     plt.legend()
     plt.show()
 
+def print_results(data_sizes, results):
+    col_widths = [max(len(str(size)), max(len(f"{results[alg][data_sizes.index(size)]:.6f} sec") for alg in results)) for size in data_sizes]
+
+    header = ["Data Size"] + list(results.keys())
+    print(" | ".join(f"{col:<{col_widths[i]}}" for i, col in enumerate(header)))
+
+    line_length = sum(col_widths) + len(col_widths) * 3 + 1
+    print("-" * line_length)
+
+    for size in data_sizes:
+        row_data = [size] + [f"{results[alg][data_sizes.index(size)]:.6f} sec" for alg in results]
+        print(" | ".join(f"{col:<{col_widths[i]}}" for i, col in enumerate(row_data)))
 
 def main():
     data_sizes = [100, 500, 1000, 3000]
@@ -72,13 +83,18 @@ def main():
     results = {alg: [] for alg in algorithms}
 
     for size in data_sizes:
-      print(f"\nData Size: {size}")
       for title, algorithm in algorithms.items():
         execution_time = run_sorting_algorithm(algorithm, size)
         results[title].append(execution_time)
-        print(f"{title}: {execution_time} seconds")
+
+    print("Results in tabular format:")
+    print("\n==========================\n")
+    print_results(data_sizes, results)
+    print("\n==========================\n")
 
     plot_results(data_sizes, results)
+
+  
 
 
 if __name__ == "__main__":
